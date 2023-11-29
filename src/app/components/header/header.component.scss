@@ -1,0 +1,10 @@
+
+.translucent {
+  background-color: rgba(0,0,0,0.5);
+}
+
+img {
+  mix-blend-mode: multiply;
+  width: 120px;
+  object-fit: contain;
+}

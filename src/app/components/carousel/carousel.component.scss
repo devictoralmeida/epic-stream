@@ -1,0 +1,14 @@
+.carousel__item {
+  max-height: 100vh;
+
+  img {
+    object-position: center center;
+  }
+}
+
+.infos__container {
+  padding: 1rem 0.5rem;
+  border-radius: 0.5rem;
+  background-color: rgba(52, 59, 65, 0.8);
+  font-weight: bold;
+}

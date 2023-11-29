@@ -1,0 +1,36 @@
+<c-carousel *ngIf="movies.length > 0" class="carousel__container">
+  <c-carousel-indicators></c-carousel-indicators>
+  <c-carousel-inner>
+    <c-carousel-item *ngFor="let movie of movies" class="carousel__item">
+      <img
+        alt="{{ movie.title }}"
+        class="d-block w-100"
+        loading="lazy"
+        src="{{ movie.backdrop_path }}"
+      />
+      <c-carousel-caption class="d-none d-md-block">
+        <div class="infos__container">
+          <h3>{{ movie.title }}</h3>
+          <p>{{ movie.overview }}</p>
+          <button
+            [routerLink]="['/movie', movie.id]"
+            cButton
+            color="danger"
+          >
+            Veja mais detalhes
+          </button>
+        </div>
+      </c-carousel-caption>
+    </c-carousel-item>
+  </c-carousel-inner>
+  <c-carousel-control
+    [routerLink]
+    caption="Previous"
+    direction="prev"
+  ></c-carousel-control>
+  <c-carousel-control
+    [routerLink]
+    caption="Next"
+    direction="next"
+  ></c-carousel-control>
+</c-carousel>
