@@ -17,7 +17,7 @@ export class MovieComponent implements OnInit {
     const id = this.route.snapshot.params['id'];
 
     this.moviesService.getMovieById(+id).subscribe({
-      next: (res: any) => {
+      next: (res: MovieDetails) => {
         this.movie = res
         return this.movie
       },

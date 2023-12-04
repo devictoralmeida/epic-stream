@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Movie } from '../../models/movie.model';
 import { MoviesService } from '../../services/movies.service';
+import { IMoviesResponse } from '../../@types/types';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +15,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.moviesService.fetchPopularMovies(2).subscribe({
-      next: (res: any) => {
+      next: (res: IMoviesResponse) => {
         this.movies = res.results
         return this.movies
       },
