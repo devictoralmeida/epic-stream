@@ -7,18 +7,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { ButtonModule } from '@coreui/angular';
 
 import { AppComponent } from './app.component';
-import { MovieCardComponent } from './components/movie-card/movie-card.component';
-
 import { HeaderModule } from './components/header/header.module';
 import { HomeModule } from './pages/home/home.module';
 import { MovieModule } from './pages/movie/movie.module';
 import { MoviesModule } from './pages/movies/movies.module';
 import { FooterModule } from './components/footer/footer.module';
 import { CarouselModule } from '@coreui/angular';
-import { CarouselComponent } from './components/carousel/carousel.component';
+
 
 @NgModule({
-  declarations: [AppComponent, CarouselComponent, MovieCardComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -30,6 +28,8 @@ import { CarouselComponent } from './components/carousel/carousel.component';
     MovieModule,
     MoviesModule,
     CarouselModule,
+    HomeModule,
+    CarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent],

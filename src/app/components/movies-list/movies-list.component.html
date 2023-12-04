@@ -1,0 +1,22 @@
+<c-card-group class="movies__list">
+  <c-card class="movie-card" textColor="white" *ngFor="let movie of (movies | async)!.results">
+    <img
+      class="movie-poster"
+      cCardImg="top"
+      [cCardImg]
+      [routerLink]="['/movie', movie.id]"
+      src="{{ moviesService.getMoviePoster(movie.backdrop_path) }}"
+      alt="{{ movie.title }}"
+    />
+
+    <c-card-img-overlay class="overlay">
+        <h5 cCardTitle>{{ movie.title }}</h5>
+        <div class="vote-and-star__container">
+          <p cCardText>
+            {{movie.vote_average.toFixed(1)}}
+          </p>
+          <img src="../../../assets/star.svg" alt="Ícone de uma estrela amarela">
+        </div>
+      </c-card-img-overlay>
+  </c-card>
+</c-card-group>
