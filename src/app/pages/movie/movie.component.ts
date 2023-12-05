@@ -39,4 +39,9 @@ export class MovieComponent implements OnInit {
     const vote = parseInt(this.movie.vote_average.toFixed(1));
     return new Array(10 - vote).fill(0);
   }
+
+  showVideo(): void {
+    const videoPlayer = document.getElementById('player')
+    videoPlayer!.classList.add('player-full')
+  }
 }

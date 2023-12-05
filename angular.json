@@ -1,5 +1,8 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "9ecdadaf-62e9-4902-9d83-3c34dbad59ed"
+  },
   "newProjectRoot": "projects",
   "projects": {
     "epic-stream": {
@@ -81,6 +84,7 @@
             "scripts": [],
             "styles": [
               "./node_modules/@coreui/coreui/scss/coreui.scss",
+              "./node_modules/@videogular/ngx-videogular/fonts/videogular.css",
               "src/styles.scss"
             ],
             "tsConfig": "tsconfig.spec.json"
@@ -105,8 +109,5 @@
       "sourceRoot": "src"
     }
   },
-  "version": 1,
-  "cli": {
-    "analytics": "9ecdadaf-62e9-4902-9d83-3c34dbad59ed"
-  }
+  "version": 1
 }

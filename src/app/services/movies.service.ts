@@ -3,7 +3,7 @@ import { Movie, MovieDetails } from '../models/movie.model';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { API_KEY } from '../../credentials';
-import { IMoviesResponse } from '../@types/types';
+import { IMovieVideoResponse, IMoviesResponse } from '../@types/types';
 
 @Injectable({
   providedIn: 'root',
@@ -50,9 +50,15 @@ export class MoviesService {
     );
   }
 
-  fetchRecommendationsByMovieId(id: number): Observable<IMoviesResponse> {
+  fetchRecommendationsByMovieId(id: string): Observable<IMoviesResponse> {
     return this.http.get<IMoviesResponse>(
       `${this.baseURL}/movie/${id}/recommendations?api_key=${API_KEY}&language=pt-BR`
+    );
+  }
+
+  fetchVideosByMovieId(id: number): Observable<IMovieVideoResponse> {
+    return this.http.get<IMovieVideoResponse>(
+      `${this.baseURL}/movie/${id}/videos?api_key=${API_KEY}&language=pt-BR`
     );
   }
 
