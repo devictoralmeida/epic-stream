@@ -44,6 +44,12 @@ export class MoviesService {
     );
   }
 
+  fetchMoviesByCategory(id: number): Observable<IMoviesResponse> {
+    return this.http.get<IMoviesResponse>(
+      `${this.baseURL}/discover/movie?api_key=${API_KEY}&language=pt-BR&include_adult=false&sort_by=popularity.desc&with_genres=${id}`
+    );
+  }
+
   fetchRecommendationsByMovieId(id: number): Observable<IMoviesResponse> {
     return this.http.get<IMoviesResponse>(
       `${this.baseURL}/movie/${id}/recommendations?api_key=${API_KEY}&language=pt-BR`
