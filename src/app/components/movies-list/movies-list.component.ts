@@ -15,12 +15,10 @@ import { CommonModule } from '@angular/common';
 })
 export class MoviesListComponent implements OnInit {
   @Input() category: string;
+  @Input() movieId: number;
   movies: Observable<IMoviesResponse>;
 
-  constructor(
-    public moviesService: MoviesService,
-    private activeRoute: ActivatedRoute
-  ) {}
+  constructor(public moviesService: MoviesService) {}
 
   ngOnInit(): void {
     switch (this.category) {
@@ -35,6 +33,11 @@ export class MoviesListComponent implements OnInit {
         return;
       case 'top-rated':
         this.movies = this.moviesService.fetchTopRatedMovies();
+        return;
+      case 'recommended':
+        this.movies = this.moviesService.fetchRecommendationsByMovieId(
+          this.movieId
+        );
         return;
     }
   }
