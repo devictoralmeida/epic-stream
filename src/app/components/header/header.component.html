@@ -10,7 +10,6 @@
         <img
           src="../../../assets/epic-stream-logo2.png"
           alt="Epic Stream Logo"
-          
         />
       </a>
       <button [cNavbarToggler]="collapseRef"></button>
@@ -26,15 +25,26 @@
             <a cNavLink>Pricing</a>
           </c-nav-item>
         </c-navbar-nav>
-        <form cForm class="d-flex" role="search">
+        <form
+          cForm
+          class="d-flex"
+          role="search"
+          [formGroup]="form"
+          (ngSubmit)="searchMovie()"
+          novalidate
+        >
           <input
             cFormControl
             type="search"
             placeholder="Digite sua busca aqui"
             aria-label="Search"
             class="me-2"
+            autocomplete="off"
+            formControlName="searchTerm"
           />
-          <button cButton color="danger">Pesquisar</button>
+          <button cButton color="danger" type="submit" disabled="{{form.status === 'INVALID' ? true : false}}">
+            Pesquisar
+          </button>
         </form>
       </div>
     </c-container>

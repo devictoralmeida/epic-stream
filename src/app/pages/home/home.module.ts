@@ -7,8 +7,15 @@ import { MoviesListComponent } from '../../components/movies-list/movies-list.co
 import { RouterModule } from '@angular/router';
 
 @NgModule({
-  declarations: [HomeComponent, MoviesListComponent, CarouselComponent],
-  imports: [CommonModule, CarouselModule, RouterModule, CardModule, ButtonModule],
+  declarations: [HomeComponent, CarouselComponent],
+  imports: [
+    CommonModule,
+    RouterModule,
+    CardModule,
+    ButtonModule,
+    CarouselModule,
+    MoviesListComponent
+  ],
   exports: [],
 })
 export class HomeModule {}
