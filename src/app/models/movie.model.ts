@@ -18,7 +18,7 @@ export class Movie {
 
 export class MovieDetails extends Movie {
   budget: number;
-  gender: TGenre[];
+  genres: TGenre[];
   homepage: string;
   production_companies: TProductionCompany[]
   revenue: number;
