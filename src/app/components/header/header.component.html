@@ -10,19 +10,26 @@
         <img
           src="../../../assets/epic-stream-logo2.png"
           alt="Epic Stream Logo"
+          routerLink="/"
         />
       </a>
       <button [cNavbarToggler]="collapseRef"></button>
       <div #collapseRef="cCollapse" navbar cCollapse>
         <c-navbar-nav class="me-auto mb-2 mb-lg-0">
           <c-nav-item>
-            <a cNavLink>Home</a>
+            <a cNavLink (click)="getFamily()">Família</a>
           </c-nav-item>
           <c-nav-item>
-            <a cNavLink>Features</a>
+            <a cNavLink (click)="getAction()">Ação</a>
           </c-nav-item>
           <c-nav-item>
-            <a cNavLink>Pricing</a>
+            <a cNavLink (click)="getComedy()">Comédia</a>
+          </c-nav-item>
+          <c-nav-item>
+            <a cNavLink (click)="getDocs()">Documentários</a>
+          </c-nav-item>
+          <c-nav-item>
+            <a cNavLink (click)="getSciFi()">Sci-Fi</a>
           </c-nav-item>
         </c-navbar-nav>
         <form
