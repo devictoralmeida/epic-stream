@@ -5,7 +5,7 @@
       [moviesList]="movies"
       *ngIf="movies.length > 0; else loader"
     ></app-movies-pages-list>
-    
+
     <ng-template #loader>
       <app-loader-spinner></app-loader-spinner>
     </ng-template>

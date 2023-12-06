@@ -1,10 +1,13 @@
-import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+
+import { Component, Input, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ActivatedRoute, Params, RouterModule } from '@angular/router';
+
+import { CardModule } from '@coreui/angular';
+
 import { IMoviesResponse } from '../../@types/types';
 import { MoviesService } from '../../services/movies.service';
-import { ActivatedRoute, Params, RouterModule } from '@angular/router';
-import { CardModule } from '@coreui/angular';
-import { CommonModule } from '@angular/common';
 import { LoaderSpinnerComponent } from '../loader-spinner/loader-spinner.component';
 import { Movie } from '../../models/movie.model';
 

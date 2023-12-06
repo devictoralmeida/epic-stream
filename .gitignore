@@ -23,6 +23,9 @@ yarn-error.log
 # Visual Studio Code
 .angular
 .vscode/*
+!.vscode
+.vscode
+vscode
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
@@ -44,3 +47,8 @@ Thumbs.db
 
 # Env
 .env
+environment.prod.ts
+environment.development.ts
+
+# Editor configuration settings
+.editorconfig

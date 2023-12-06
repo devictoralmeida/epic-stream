@@ -8,7 +8,6 @@
 
   --font-family-1: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  --font-family-2: "Great Vibes", cursive;
 
   --font-title-1: 1.5rem;
   --font-title-2: 1.25rem;
@@ -42,12 +41,15 @@ header {
   margin-bottom: 6rem;
 }
 
+button {
+  font-weight: var(--font-weight-2) !important;
+  border: none !important;
+}
+
 .primary {
   background-color: var(--color-brand) !important;
-  font-weight: var(--font-weight-2) !important;
   opacity: 0.9 !important;
   transition: 0.3s !important;
-  border: none !important;
 }
 
 .primary:hover {
@@ -88,9 +90,4 @@ input::placeholder {
 ::-webkit-scrollbar-thumb {
   border-radius: 35px;
   background-color: var(--color-brand);
-}
-
-:focus {
-  outline: transparent !important;
-  box-shadow: 0 0 0 1px var(--color-brand) !important;
 }
