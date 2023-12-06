@@ -40,7 +40,7 @@ npm install
 
 5. Você irá precisar se cadastrar e receber a sua API_KEY e API_TOKEN no <a href="https://developer.themoviedb.org/docs">Site do TMDB</a>
 
-6. Faça uma cópia do arquivo "src/environments/environment.example.ts" alterando o nome para "environment.ts", troque o dado de interface para uma constante, esse objeto pode estar vazio, porém você deve criar um arquivo environment.prod.ts e environment.development.ts setando as respectivas variáveis de ambientes explicadas no environment.example. Algumas variáveis ​​de ambiente são essenciais para que a API funcione em produção
+6. Utilize a tipagem do arquivo "src/environments/environment.example.ts" como modelo para criação dos ambientes de desenvolvimento e de produção, Você deve criar um arquivo environment.prod.ts e environment.development.ts setando as respectivas variáveis de ambientes explicadas no environment.example.
 
 7. Execute a aplicação
 
