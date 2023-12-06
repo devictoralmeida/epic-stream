@@ -24,7 +24,6 @@
     "@coreui/icons": "^3.0.1",
     "@coreui/icons-angular": "^4.7.0",
     "@videogular/ngx-videogular": "^8.0.0",
-    "dotenv": "^16.3.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "videogular-youtube": "^2.0.6",

@@ -48,7 +48,6 @@ Thumbs.db
 # Env
 .env
 environment.prod.ts
-environment.development.ts
 
 # Editor configuration settings
 .editorconfig
