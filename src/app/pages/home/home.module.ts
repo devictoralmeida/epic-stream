@@ -14,7 +14,7 @@ import { RouterModule } from '@angular/router';
     CardModule,
     ButtonModule,
     CarouselModule,
-    MoviesListComponent
+    MoviesListComponent,
   ],
   exports: [],
 })

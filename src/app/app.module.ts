@@ -18,13 +18,6 @@ import { FooterComponent } from './components/footer/footer.component';
 import { MoviesModule } from './pages/movies/movies.module';
 import { MoviesListComponent } from './components/movies-list/movies-list.component';
 import { MovieModule } from './pages/movie/movie.module';
-import { VgControlsModule } from '@videogular/ngx-videogular/controls';
-import { VgCoreModule } from '@videogular/ngx-videogular/core';
-import { VgBufferingModule } from '@videogular/ngx-videogular/buffering';
-import { VgOverlayPlayModule } from '@videogular/ngx-videogular/overlay-play';
-import { YouTubePlayerModule } from '@angular/youtube-player';
-
-import { FormsModule } from '@angular/forms';
 
 registerLocaleData(localePt, 'pt-BR');
 
@@ -43,9 +36,9 @@ registerLocaleData(localePt, 'pt-BR');
     CarouselModule,
     MoviesModule,
     MovieModule,
-    MoviesListComponent,
-    FormsModule
+    MoviesListComponent
   ],
+  exports: [],
   providers: [{ provide: LOCALE_ID, useValue: 'pt-BR' }],
   bootstrap: [AppComponent],
 })

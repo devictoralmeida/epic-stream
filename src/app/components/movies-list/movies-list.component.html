@@ -1,16 +1,12 @@
-<div *ngIf="movies !== null && movies !== undefined; else carregando">
+<div>
   <c-card-group class="movies__list">
-    <div *ngFor="let movie of (movies | async)!.results" class="teste">
-      <c-card
-        class="movie-card"
-        textColor="white"
-        *ngIf="movie.backdrop_path !== null"
-      >
+    <div *ngFor="let movie of (movies | async)!.results">
+      <c-card class="movie-card" textColor="white">
         <img
           class="movie-poster"
           cCardImg="top"
           [cCardImg]
-          src="{{ moviesService.getMoviePoster(movie.backdrop_path) }}"
+          [src]="moviesService.getMoviePoster(movie.backdrop_path)"
           alt="{{ movie.title }}"
         />
 

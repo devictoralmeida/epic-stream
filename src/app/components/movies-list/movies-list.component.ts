@@ -38,10 +38,7 @@ export class MoviesListComponent implements OnInit {
         return;
       case 'recommended':
         this.route.params.subscribe((params: Params) => {
-          console.log(params);
-          this.movies = this.moviesService.fetchRecommendationsByMovieId(
-            params['id']
-          );
+          this.movies = this.moviesService.fetchRecommendationsByMovieId(params['id']);
         });
         return;
     }

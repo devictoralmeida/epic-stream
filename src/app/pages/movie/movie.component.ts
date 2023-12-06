@@ -30,14 +30,16 @@ export class MovieComponent implements OnInit {
     });
   }
 
+  getPontuation(): number {
+    return Math.round(this.movie.vote_average)
+  }
+
   getStars(): number[] {
-    const vote = parseInt(this.movie.vote_average.toFixed(1));
-    return new Array(vote).fill(0);
+    return new Array(Math.round(this.movie.vote_average)).fill(0);
   }
 
   getEmptyStars(): number[] {
-    const vote = parseInt(this.movie.vote_average.toFixed(1));
-    return new Array(10 - vote).fill(0);
+    return new Array(Math.round(10 - this.movie.vote_average)).fill(0);
   }
 
   showVideo(): void {
