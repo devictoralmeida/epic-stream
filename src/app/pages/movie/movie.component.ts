@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { MovieDetails } from '../../models/movie.model';
 import { MoviesService } from '../../services/movies.service';
-import { MovieVideo } from '../../models/movieVideo.model';
 import { IMovieVideoResponse } from '../../@types/types';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-movie',
@@ -16,7 +16,8 @@ export class MovieComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private moviesService: MoviesService
+    private moviesService: MoviesService,
+    private location: Location
   ) {}
 
   ngOnInit(): void {
@@ -61,5 +62,10 @@ export class MovieComponent implements OnInit {
   showVideo(): void {
     const videoPlayer = document.getElementById('player');
     videoPlayer?.classList.add('player-full');
+  }
+
+  previousPage(): void {
+    document.body.scrollTop = 0;
+    this.location.back();
   }
 }
