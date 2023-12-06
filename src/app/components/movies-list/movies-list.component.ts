@@ -29,7 +29,7 @@ export class MoviesListComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.moviesService.fetchPopularMovies(1).subscribe({
+    this.moviesService.fetchPopularMovies(3).subscribe({
       next: (res: IMoviesResponse) => {
         this.popularMovies = res.results;
         return;

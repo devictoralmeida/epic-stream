@@ -24,12 +24,12 @@ export class MoviesComponent implements OnInit {
           this.moviesService.fetchMoviesByQuery(params['query']).subscribe({
             next: (res: IMoviesResponse) => {
               const moviesWithPoster: Movie[] = res.results.filter(
-                (movie: Movie) => movie.backdrop_path !== null
+                (movie: Movie) => movie.poster_path !== null
               );
 
               moviesWithPoster.forEach((movie: Movie) => {
-                movie.backdrop_path = this.moviesService.getMoviePoster(
-                  movie.backdrop_path
+                movie.poster_path = this.moviesService.getMoviePoster(
+                  movie.poster_path
                 );
               });
 
@@ -42,12 +42,12 @@ export class MoviesComponent implements OnInit {
             .subscribe({
               next: (res: IMoviesResponse) => {
                 const moviesWithPoster: Movie[] = res.results.filter(
-                  (movie: Movie) => movie.backdrop_path !== null
+                  (movie: Movie) => movie.poster_path !== null
                 );
 
                 moviesWithPoster.forEach((movie: Movie) => {
-                  movie.backdrop_path = this.moviesService.getMoviePoster(
-                    movie.backdrop_path
+                  movie.poster_path = this.moviesService.getMoviePoster(
+                    movie.poster_path
                   );
                 });
 

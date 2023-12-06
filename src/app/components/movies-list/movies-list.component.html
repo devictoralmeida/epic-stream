@@ -1,13 +1,13 @@
 <ng-container *ngIf="(movies | async)?.total_results !== 0; else popular">
   <c-card-group class="movies__list">
     <div *ngFor="let movie of (movies | async)?.results">
-      <div *ngIf="movie.backdrop_path !== null">
+      <div *ngIf="movie.poster_path !== null">
         <c-card class="movie-card" textColor="white">
           <img
             class="movie-poster"
             cCardImg="top"
             [cCardImg]
-            [src]="moviesService.getMoviePoster(movie.backdrop_path)"
+            [src]="moviesService.getMoviePoster(movie.poster_path)"
             alt="{{ movie.title }}"
           />
 
@@ -35,13 +35,13 @@
 <ng-template #popular>
   <c-card-group class="movies__list">
     <div *ngFor="let movie of popularMovies">
-      <div *ngIf="movie.backdrop_path !== null">
+      <div *ngIf="movie.poster_path !== null">
         <c-card class="movie-card" textColor="white">
           <img
             class="movie-poster"
             cCardImg="top"
             [cCardImg]
-            [src]="moviesService.getMoviePoster(movie.backdrop_path)"
+            [src]="moviesService.getMoviePoster(movie.poster_path)"
             alt="{{ movie.title }}"
           />
 

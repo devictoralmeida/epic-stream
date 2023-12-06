@@ -25,10 +25,6 @@ export class HomeComponent implements OnInit {
             movie.poster_path
           );
 
-          movie.backdrop_path = this.moviesService.getMoviePoster(
-            movie.backdrop_path
-          );
-
           return movie;
         });
       },

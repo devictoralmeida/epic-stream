@@ -6,11 +6,7 @@
   <c-carousel-indicators></c-carousel-indicators>
   <c-carousel-inner>
     <c-carousel-item *ngFor="let movie of movies" class="carousel__item">
-      <img
-        alt="{{ movie.title }}"
-        loading="lazy"
-        src="{{ movie.backdrop_path }}"
-      />
+      <img alt="{{ movie.title }}" src="{{ movie.poster_path }}" />
       <c-carousel-caption class="d-none d-md-block">
         <div class="infos__container">
           <h2>{{ movie.title }}</h2>
