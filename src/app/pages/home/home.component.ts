@@ -9,15 +9,22 @@ import { IMoviesResponse } from '../../@types/types';
   styleUrl: './home.component.scss',
 })
 export class HomeComponent implements OnInit {
-  private movies: Movie[]
+  movies: Movie[] = []
 
   constructor(private moviesService: MoviesService) {}
 
   ngOnInit() {
-    this.moviesService.fetchPopularMovies(2).subscribe({
+    this.moviesService.fetchPopularMovies(1).subscribe({
       next: (res: IMoviesResponse) => {
-        this.movies = res.results
-        return this.movies
+        this.movies = res.results.map((movie: Movie) => {
+          movie.poster_path = this.moviesService.getMoviePoster(
+            movie.poster_path
+          );
+          movie.backdrop_path = this.moviesService.getMoviePoster(
+            movie.backdrop_path
+          );
+          return movie;
+        });
       },
     });
   }

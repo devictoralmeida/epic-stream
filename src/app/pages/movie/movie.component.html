@@ -1,4 +1,4 @@
-<main class="main-movie__container">
+<main class="main-movie__container" *ngIf="movie !== undefined; else loader">
   <picture id="movie-poster__container">
     <img
       [src]="movie.backdrop_path"
@@ -43,18 +43,33 @@
     </div>
     <p>{{ movie.overview }}</p>
     <div class="movie-player__container">
-      <app-movie-player [movieId]="movie.id"></app-movie-player>
+      <app-movie-player
+        *ngIf="movieVideoId.length > 0"
+        [videoId]="movieVideoId"
+      ></app-movie-player>
     </div>
     <div class="buttons__container">
       <button cButton type="button" routerLink="/" color="danger">
         Voltar
       </button>
-      <button cButton type="button" color="danger" class="primary" (click)="showVideo()">
+      <button
+        cButton
+        *ngIf="movieVideoId.length > 0"
+        type="button"
+        color="danger"
+        class="primary"
+        (click)="showVideo()"
+      >
         Assistir
       </button>
     </div>
   </div>
 </main>
+
+<ng-template #loader>
+  <app-loader-spinner></app-loader-spinner>
+</ng-template>
+
 <section class="section__container">
   <h2>Filmes Recomendados</h2>
   <app-movies-list category="recommended"></app-movies-list>

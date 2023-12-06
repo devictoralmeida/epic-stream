@@ -34,7 +34,6 @@
           "defaultConfiguration": "production",
           "options": {
             "assets": [
-              "src/favicon.ico",
               "src/assets"
             ],
             "browser": "src/main.ts",
@@ -42,10 +41,13 @@
             "inlineStyleLanguage": "scss",
             "outputPath": "dist/epic-stream",
             "polyfills": [
-              "zone.js"
+              "zone.js",
+              "zone.js/testing"
             ],
             "scripts": [],
             "styles": [
+              "./node_modules/@coreui/coreui/scss/coreui.scss",
+              "./node_modules/@videogular/ngx-videogular/fonts/videogular.css",
               "src/styles.scss"
             ],
             "tsConfig": "tsconfig.app.json"
@@ -73,7 +75,6 @@
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "assets": [
-              "src/favicon.ico",
               "src/assets"
             ],
             "inlineStyleLanguage": "scss",

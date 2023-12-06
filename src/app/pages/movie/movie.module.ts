@@ -7,6 +7,7 @@ import { MoviePlayerComponent } from './movie-player/movie-player.component';
 import { AppRoutingModule } from '../../app-routing.module';
 import { YouTubePlayerModule } from '@angular/youtube-player';
 import { RouterModule } from '@angular/router';
+import { LoaderSpinnerComponent } from '../../components/loader-spinner/loader-spinner.component';
 
 @NgModule({
   declarations: [MovieComponent, MoviePlayerComponent],
@@ -17,6 +18,7 @@ import { RouterModule } from '@angular/router';
     AppRoutingModule,
     RouterModule,
     YouTubePlayerModule,
+    LoaderSpinnerComponent
   ],
 })
 export class MovieModule {}

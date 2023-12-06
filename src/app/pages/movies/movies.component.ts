@@ -10,7 +10,7 @@ import { Movie } from '../../models/movie.model';
   styleUrl: './movies.component.scss',
 })
 export class MoviesComponent implements OnInit {
-  movies: Movie[] = [];
+  public movies: Movie[] = [];
 
   constructor(
     public moviesService: MoviesService,
