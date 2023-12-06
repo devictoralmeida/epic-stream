@@ -1,6 +1,13 @@
 <main class="section__container">
   <section>
     <h3>Resultado da busca:</h3>
-    <app-movies-pages-list [moviesList]="movies"></app-movies-pages-list>
+    <app-movies-pages-list
+      [moviesList]="movies"
+      *ngIf="movies.length > 0; else loader"
+    ></app-movies-pages-list>
+
+    <ng-template #loader>
+      <app-loader-spinner></app-loader-spinner>
+    </ng-template>
   </section>
 </main>

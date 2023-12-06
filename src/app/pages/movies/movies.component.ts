@@ -10,10 +10,10 @@ import { Movie } from '../../models/movie.model';
   styleUrl: './movies.component.scss',
 })
 export class MoviesComponent implements OnInit {
-  movies: Movie[] = [];
+  public movies: Movie[] = [];
 
   constructor(
-    public moviesService: MoviesService,
+    private moviesService: MoviesService,
     private activeRoute: ActivatedRoute
   ) {}
 
@@ -37,21 +37,23 @@ export class MoviesComponent implements OnInit {
             },
           });
         } else {
-          this.moviesService.fetchMoviesByCategory(params['category']).subscribe({
-            next: (res: IMoviesResponse) => {
-              const moviesWithPoster: Movie[] = res.results.filter(
-                (movie: Movie) => movie.backdrop_path !== null
-              );
-
-              moviesWithPoster.forEach((movie: Movie) => {
-                movie.backdrop_path = this.moviesService.getMoviePoster(
-                  movie.backdrop_path
+          this.moviesService
+            .fetchMoviesByCategory(params['category'])
+            .subscribe({
+              next: (res: IMoviesResponse) => {
+                const moviesWithPoster: Movie[] = res.results.filter(
+                  (movie: Movie) => movie.backdrop_path !== null
                 );
-              });
 
-              this.movies = moviesWithPoster;
-            },
-          });
+                moviesWithPoster.forEach((movie: Movie) => {
+                  movie.backdrop_path = this.moviesService.getMoviePoster(
+                    movie.backdrop_path
+                  );
+                });
+
+                this.movies = moviesWithPoster;
+              },
+            });
         }
       },
     });

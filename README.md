@@ -1,27 +1,50 @@
-# ProjetoAngular
+<div align="center">
+    <img src="./src/assets/epic-stream-logo1.png" alt="Epic Stream Logo" />
+</div>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.0.
+# Projeto Epic Stream
 
-## Development server
+Esse projeto se trata de uma aplicação Front-end desenvolvida em angular cujo objetivo é simular uma plataforma de streaming
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## 💻 Instalação, Dependências e Executando o Projeto
 
-## Code scaffolding
+Para rodar esse projeto é preciso ter o `Node.js` instalado, recomendo a versão LTS, e o seu gerenciador de pacote favorito na versão mais atual.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. Será necessário instalar a CLI do Angular
 
-## Build
+```shell
+npm install -g @angular/cli
+ou
+yarn global add @angular/cli
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+2. Clone este repositório
 
-## Running unit tests
+```shell
+git clone git@github.com:devictoralmeida/epic-stream.git
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+3. Vá até o diretório raiz do projeto
 
-## Running end-to-end tests
+```shell
+cd epic-stream
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+4. Instale as dependências necessárias
 
-## Further help
+```shell
+yarn
+ou
+npm install
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+5. Você irá precisar se cadastrar e receber a sua API_KEY e API_TOKEN no <a href="https://developer.themoviedb.org/docs">Site do TMDB</a>
+
+6. Utilize a tipagem do arquivo "src/environments/environment.example.ts" como modelo para criação dos ambientes de desenvolvimento e de produção, Você deve criar um arquivo environment.prod.ts e environment.development.ts setando as respectivas variáveis de ambientes explicadas no environment.example.
+
+7. Execute a aplicação
+
+```shell
+ng serve
+# O servidor será executado na porta 4200 (http://localhost:4200)
+```
