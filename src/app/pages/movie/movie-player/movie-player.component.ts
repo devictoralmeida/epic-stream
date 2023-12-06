@@ -1,22 +1,16 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { MoviesService } from '../../../services/movies.service';
-import { MovieVideo } from '../../../models/movieVideo.model';
-import { IMovieVideoResponse } from '../../../@types/types';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-movie-player',
-  template:
-    '<youtube-player [videoId]="this.movie!.key" id="player" [width]="300"  placeholderImageQuality="high"></youtube-player>',
+  templateUrl: './movie-player.component.html',
   styleUrl: './movie-player.component.scss',
 })
 export class MoviePlayerComponent implements OnInit {
-  @Input() movieId: number;
   @Input() videoId: string;
-
   private apiLoaded = false;
-  movie: MovieVideo;
 
-  constructor(private moviesService: MoviesService) {}
+  constructor(private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     if (!this.apiLoaded) {
@@ -26,10 +20,18 @@ export class MoviePlayerComponent implements OnInit {
       this.apiLoaded = true;
     }
 
-    this.moviesService.fetchVideosByMovieId(this.movieId).subscribe({
-      next: (res: IMovieVideoResponse) => {
-        this.movie = res.results[0];
-      },
+    this.route.paramMap.subscribe((params) => {
+      const newId = params.get('id');
+      this.hideOrShowVideo(newId);
     });
+  }
+
+  hideOrShowVideo(newId: string | null): void {
+    const videoPlayer = document.getElementById('player');
+
+    if (newId) {
+      videoPlayer?.classList.add('hide');
+      videoPlayer?.classList.remove('player-full');
+    }
   }
 }

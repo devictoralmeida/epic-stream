@@ -5,6 +5,7 @@ import { CarouselComponent } from '../../components/carousel/carousel.component'
 import { ButtonModule, CardModule, CarouselModule } from '@coreui/angular';
 import { MoviesListComponent } from '../../components/movies-list/movies-list.component';
 import { RouterModule } from '@angular/router';
+import { LoaderSpinnerComponent } from '../../components/loader-spinner/loader-spinner.component';
 
 @NgModule({
   declarations: [HomeComponent, CarouselComponent],
@@ -15,6 +16,7 @@ import { RouterModule } from '@angular/router';
     ButtonModule,
     CarouselModule,
     MoviesListComponent,
+    LoaderSpinnerComponent
   ],
   exports: [],
 })

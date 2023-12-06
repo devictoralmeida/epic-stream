@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { MovieDetails } from '../../models/movie.model';
 import { MoviesService } from '../../services/movies.service';
+import { MovieVideo } from '../../models/movieVideo.model';
+import { IMovieVideoResponse } from '../../@types/types';
 
 @Component({
   selector: 'app-movie',
@@ -10,6 +12,7 @@ import { MoviesService } from '../../services/movies.service';
 })
 export class MovieComponent implements OnInit {
   public movie: MovieDetails;
+  public movieVideoId: string = '';
 
   constructor(
     private route: ActivatedRoute,
@@ -18,7 +21,9 @@ export class MovieComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
-      this.moviesService.getMovieById(parseInt(params['id'])).subscribe({
+      const id = Number(params['id']);
+
+      this.moviesService.getMovieById(id).subscribe({
         next: (res: MovieDetails) => {
           this.movie = res;
           this.movie.backdrop_path = this.moviesService.getMoviePoster(
@@ -27,11 +32,22 @@ export class MovieComponent implements OnInit {
           return this.movie;
         },
       });
+
+      this.moviesService.fetchVideosByMovieId(id).subscribe({
+        next: (res: IMovieVideoResponse) => {
+          if (res.results.length > 0) {
+            this.movieVideoId = res.results[0].key;
+          } else {
+            this.movieVideoId = '';
+          }
+          return this.movieVideoId;
+        },
+      });
     });
   }
 
   getPontuation(): number {
-    return Math.round(this.movie.vote_average)
+    return Math.round(this.movie.vote_average);
   }
 
   getStars(): number[] {
@@ -43,7 +59,7 @@ export class MovieComponent implements OnInit {
   }
 
   showVideo(): void {
-    const videoPlayer = document.getElementById('player')
-    videoPlayer!.classList.add('player-full')
+    const videoPlayer = document.getElementById('player');
+    videoPlayer?.classList.add('player-full');
   }
 }

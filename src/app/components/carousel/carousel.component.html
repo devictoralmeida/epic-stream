@@ -1,5 +1,5 @@
 <c-carousel
-  *ngIf="movies.length > 0"
+  *ngIf="movies.length > 0; else loader"
   [interval]="5000"
   style="margin-bottom: 2rem"
 >
@@ -15,7 +15,12 @@
         <div class="infos__container">
           <h2>{{ movie.title }}</h2>
           <p>{{ movie.overview }}</p>
-          <button [routerLink]="['/movie', movie.id]" cButton color="danger" class="primary">
+          <button
+            [routerLink]="['/movie', movie.id]"
+            cButton
+            color="danger"
+            class="primary"
+          >
             Veja mais detalhes
           </button>
         </div>
@@ -33,3 +38,7 @@
     direction="next"
   ></c-carousel-control>
 </c-carousel>
+
+<ng-template #loader>
+  <app-loader-spinner></app-loader-spinner>
+</ng-template>
