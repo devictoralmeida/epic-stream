@@ -10,8 +10,15 @@
 }
 
 .infos__container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   padding: 1rem 0.5rem;
   border-radius: 0.5rem;
   background-color: rgba(52, 59, 65, 0.8);
-  font-weight: bold;
+  font-weight: var(--font-weight-3);
+
+  button {
+    align-self: center;
+  }
 }

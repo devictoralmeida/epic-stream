@@ -1,4 +1,5 @@
 import { Movie } from "../models/movie.model";
+import { MovieVideo } from "../models/movieVideo.model";
 
 export type TGenre = {
   id: number;
@@ -15,4 +16,9 @@ export interface IMoviesResponse {
   results: Movie[];
   total_pages: number;
   total_results: number;
+}
+
+export interface IMovieVideoResponse {
+  id: number;
+  results: MovieVideo[];
 }

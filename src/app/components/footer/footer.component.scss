@@ -1,19 +1,12 @@
 .footer__container {
   padding: 1rem 2rem;
+  margin-top: auto;
+  align-self: flex-end;
+  min-width: 100vw;
   background-color: rgb(60, 60, 60, 0.5);
 
-  img {
-    mix-blend-mode: multiply;
-    width: 150px;
-    object-fit: contain;
-  }
-
   p {
-    font-size: 1rem;
+    font-size: var(--font-text-2);
     color: var(--color-white);
-    margin-bottom: 0rem;
   }
 }
-
-
-// background-color: rgba(0,0,0,0.5);

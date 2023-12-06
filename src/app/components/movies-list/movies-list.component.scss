@@ -4,7 +4,7 @@
   padding: 0rem 1rem;
   gap: 1rem;
   align-items: center;
-  overflow-x: scroll;
+  overflow-x: auto;
   margin: 1rem auto;
   padding-bottom: 2rem;
 }
@@ -28,33 +28,28 @@
     cursor: pointer;
   }
 
-
   .overlay {
     display: none;
     cursor: pointer;
     background-color: rgba(0, 0, 0, 0.5);
 
     h5 {
-      font-size: 1.2rem;
-      margin-bottom: 0rem;
+      font-size: var(--font-text-1);
     }
 
     p {
-      font-size: 0.85rem;
-      font-weight: bold;
-      margin-bottom: 0rem;
+      font-size: var(--font-text-2);
+      font-weight: var(--font-weight-1);
     }
   }
 }
-
-
 
 .movie-card:hover {
   .overlay {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    gap: 1rem;
+    gap: 0.5rem;
   }
 }
 

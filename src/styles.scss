@@ -10,16 +10,14 @@
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   --font-family-2: "Great Vibes", cursive;
 
-  --font-title-1: 1.25rem;
-  --font-title-2: 1rem;
+  --font-title-1: 1.5rem;
+  --font-title-2: 1.25rem;
 
-  --font-title-1: 1.25rem;
-  --font-title-2: 1rem;
-  --font-text-1: 0.875rem;
+  --font-text-1: 1rem;
   --font-text-2: 0.75rem;
 
-  --font-weight-1: 600;
-  --font-weight-2: 500;
+  --font-weight-1: 700;
+  --font-weight-2: 600;
   --font-weight-3: 400;
 }
 
@@ -30,19 +28,65 @@
 }
 
 body {
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  overflow-x: hidden ;
+  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   background-color: var(--color-black);
   color: var(--color-white);
 }
 
-main {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  height: 100%;
+header {
+  margin-bottom: 6rem;
+}
+
+.primary {
+  background-color: var(--color-brand) !important;
+  font-weight: var(--font-weight-2) !important;
+  opacity: 0.9 !important;
+  transition: 0.3s !important;
+  border: none !important;
+}
+
+.primary:hover {
+  opacity: 1 !important;
+}
+
+h1, h2, h4, h5 {
+  color: var(--color-brand);
+}
+
+h1, h2, h4, h5, p {
+  margin-bottom: 0rem !important;
+}
+
+h3 {
+  padding-left: 1rem;
+  margin: 1rem 0rem 3rem 0rem;
+}
+
+input {
+  color: var(--color-black) !important;
+}
+
+input::placeholder {
+  color: var(--color-gray) !important;
+}
+
+::-webkit-scrollbar {
+  height: 10px;
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 35px;
+  background-color: var(--color-gray);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 35px;
+  background-color: var(--color-brand);
+}
+
+:focus {
+  outline: transparent !important;
+  box-shadow: 0 0 0 1px var(--color-brand) !important;
 }

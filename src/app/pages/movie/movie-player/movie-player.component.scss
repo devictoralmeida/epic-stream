@@ -1,0 +1,10 @@
+#player {
+  display: none;
+}
+
+.player-full {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  min-width: 100%;
+}

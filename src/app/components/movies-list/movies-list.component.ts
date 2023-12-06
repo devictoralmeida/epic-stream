@@ -19,7 +19,7 @@ export class MoviesListComponent implements OnInit {
 
   constructor(
     public moviesService: MoviesService,
-    private activeRoute: ActivatedRoute
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
@@ -35,6 +35,11 @@ export class MoviesListComponent implements OnInit {
         return;
       case 'top-rated':
         this.movies = this.moviesService.fetchTopRatedMovies();
+        return;
+      case 'recommended':
+        this.route.params.subscribe((params: Params) => {
+          this.movies = this.moviesService.fetchRecommendationsByMovieId(params['id']);
+        });
         return;
     }
   }

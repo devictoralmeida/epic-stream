@@ -1,1 +1,61 @@
-<p>movie works!</p>
+<main class="main-movie__container">
+  <picture id="movie-poster__container">
+    <img
+      [src]="movie.backdrop_path"
+      alt="Poster do filme {{ movie.title }}"
+      class="movie-poster"
+    />
+  </picture>
+
+  <div class="movie-content__container">
+    <h1>{{ movie.title }}</h1>
+    <div class="score__container">
+      <div class="stars__container">
+        <ng-container *ngFor="let star of getStars()">
+          <img
+            class="star-icon"
+            src="../../../assets/star.svg"
+            alt="Ícone de uma Estrela acesa"
+          />
+        </ng-container>
+        <ng-container *ngFor="let star of getEmptyStars()">
+          <img
+            class="star-icon-off"
+            src="../../../assets/star-off.svg"
+            alt="Ícone de uma Estrela apagada"
+          />
+        </ng-container>
+      </div>
+      <p class="emphasis vote">{{ getPontuation() }}</p>
+    </div>
+    <p></p>
+    <p>
+      <span class="emphasis">Data de lançamento: </span
+      >{{ movie.release_date | date : "dd/MM/yyyy" }}
+    </p>
+    <div class="genres__container">
+      <p class="emphasis">Gêneros:</p>
+      <div class="genres-spans__container">
+        <span class="genre" *ngFor="let genre of movie.genres">{{
+          genre.name
+        }}</span>
+      </div>
+    </div>
+    <p>{{ movie.overview }}</p>
+    <div class="movie-player__container">
+      <app-movie-player [movieId]="movie.id"></app-movie-player>
+    </div>
+    <div class="buttons__container">
+      <button cButton type="button" routerLink="/" color="danger">
+        Voltar
+      </button>
+      <button cButton type="button" color="danger" class="primary" (click)="showVideo()">
+        Assistir
+      </button>
+    </div>
+  </div>
+</main>
+<section class="section__container">
+  <h2>Filmes Recomendados</h2>
+  <app-movies-list category="recommended"></app-movies-list>
+</section>

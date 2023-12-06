@@ -20,21 +20,39 @@ export class MoviesComponent implements OnInit {
   ngOnInit(): void {
     this.activeRoute.queryParams.subscribe({
       next: (params: Params) => {
-        this.moviesService.fetchMoviesByQuery(params['query']).subscribe({
-          next: (res: IMoviesResponse) => {
-            const moviesWithPoster: Movie[] = res.results.filter(
-              (movie: Movie) => movie.backdrop_path !== null
-            );
-
-            moviesWithPoster.forEach((movie: Movie) => {
-              movie.backdrop_path = this.moviesService.getMoviePoster(
-                movie.backdrop_path
+        if (params['query']) {
+          this.moviesService.fetchMoviesByQuery(params['query']).subscribe({
+            next: (res: IMoviesResponse) => {
+              const moviesWithPoster: Movie[] = res.results.filter(
+                (movie: Movie) => movie.backdrop_path !== null
               );
-            });
 
-            this.movies = moviesWithPoster;
-          },
-        });
+              moviesWithPoster.forEach((movie: Movie) => {
+                movie.backdrop_path = this.moviesService.getMoviePoster(
+                  movie.backdrop_path
+                );
+              });
+
+              this.movies = moviesWithPoster;
+            },
+          });
+        } else {
+          this.moviesService.fetchMoviesByCategory(params['category']).subscribe({
+            next: (res: IMoviesResponse) => {
+              const moviesWithPoster: Movie[] = res.results.filter(
+                (movie: Movie) => movie.backdrop_path !== null
+              );
+
+              moviesWithPoster.forEach((movie: Movie) => {
+                movie.backdrop_path = this.moviesService.getMoviePoster(
+                  movie.backdrop_path
+                );
+              });
+
+              this.movies = moviesWithPoster;
+            },
+          });
+        }
       },
     });
   }
