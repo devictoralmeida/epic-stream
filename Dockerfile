@@ -1,0 +1,13 @@
+FROM node:20-alpine as node
+
+WORKDIR /app
+
+COPY . .
+
+RUN npm install
+RUN npm run build --prod
+
+FROM nginx:1.24
+COPY --from=node /app/dist/epic-stream/browser  /usr/share/nginx/html
+
+EXPOSE 80

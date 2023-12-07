@@ -8,7 +8,9 @@ Esse projeto se trata de uma aplicação Front-end desenvolvida em angular cujo 
 
 ## 💻 Instalação, Dependências e Executando o Projeto
 
-Para rodar esse projeto é preciso ter o `Node.js` instalado, recomendo a versão LTS, e o seu gerenciador de pacote favorito na versão mais atual.
+Para rodar esse projeto é preciso ter o `Node.js` instalado, recomendo a versão LTS (> 20), e o seu gerenciador de pacote favorito na versão mais atual.
+
+### Rodando a aplicação localmente
 
 1. Será necessário instalar a CLI do Angular
 
@@ -47,4 +49,11 @@ npm install
 ```shell
 ng serve
 # O servidor será executado na porta 4200 (http://localhost:4200)
+```
+
+## Rodando a aplicação com docker
+
+Basta utilizar o comando abaixo e depois acessar a url `http://localhost:8099`
+```shell
+docker-compose up -d
 ```
