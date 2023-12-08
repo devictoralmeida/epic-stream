@@ -17,6 +17,7 @@ export class HeaderComponent {
   searchMovie(): void {
     const searchTerm = this.form.get('searchTerm')!.value;
     this.router.navigate(['/movies'], { queryParams: { query: searchTerm } });
+    this.form.reset();
   }
 
   getFamily(): void {
